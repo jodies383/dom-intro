@@ -44,12 +44,14 @@ updateBtn.addEventListener("click", changeBill);
 function setBill() {
     var checkedSetBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked").value;
 
+//   if (myBillCost <= critSetting) {
     if (checkedSetBtn === "call") {
         totalC += parseFloat(callSetting);
 
     } else if (checkedSetBtn === "sms") {
         totalS += parseFloat(smsSetting);
     }
+//   }
     totalCall.innerHTML = parseFloat(totalC).toFixed(2);
     totalSms.innerHTML = parseFloat(totalS).toFixed(2);
     var myBillCost = totalC + totalS;
@@ -62,9 +64,13 @@ function setBill() {
         theTotal.classList.add("warning");
     }
 
+    if (myBillCost >= critSetting){
+        theTotal += 0;
+        totalCall += 0;
+        totalSms += 0;
+    }
+
 }
-
-
 
 //add an event listener for when the add button is pressed
 
