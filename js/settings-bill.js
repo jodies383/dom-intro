@@ -29,13 +29,29 @@ var totalAll = 0;
 
 
 function changeBill() {
-    callSetting = setCall.value
-    smsSetting = setSms.value
-    warningSetting = warnLevel.value
-    critSetting = critLevel.value
+    callSetting = Number(setCall.value)
+    smsSetting = Number(setSms.value)
+    warningSetting = Number(warnLevel.value)
+    critSetting = Number(critLevel.value)
+
+    if (totalAll >= critSetting && critSetting > 0) {
+        theTotal.classList.remove("warning");
+        theTotal.classList.add("danger");
+
+    }
+    else if (totalAll >= warningSetting && warningSetting > 0) {
+        theTotal.classList.remove("danger");
+        theTotal.classList.add("warning");
+    }
+    else {
+        theTotal.classList.remove("warning");
+        theTotal.classList.remove("danger");
+    }
 
 
 }
+
+
 //add an event listener for when the 'Update settings' button is pressed
 
 updateBtn.addEventListener("click", changeBill);
@@ -44,37 +60,51 @@ updateBtn.addEventListener("click", changeBill);
 function setBill() {
     var checkedSetBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked").value;
 
-//   if (myBillCost <= critSetting) {
-    if (checkedSetBtn === "call") {
-        totalC += parseFloat(callSetting);
+    if (totalAll < critSetting) {
+        if (checkedSetBtn === "call") {
+            totalC += parseFloat(callSetting);
 
-    } else if (checkedSetBtn === "sms") {
-        totalS += parseFloat(smsSetting);
+        } else if (checkedSetBtn === "sms") {
+            totalS += parseFloat(smsSetting);
+        }
+        if (totalAll >= critSetting) {
+            totalAll += 0;
+            totalCall += 0;
+            totalSms += 0;
+        }
+
+        totalCall.innerHTML = parseFloat(totalC).toFixed(2);
+        totalSms.innerHTML = parseFloat(totalS).toFixed(2);
+        totalAll = totalC + totalS;
+        theTotal.innerHTML = parseFloat(totalAll).toFixed(2);
+
     }
-//   }
-    totalCall.innerHTML = parseFloat(totalC).toFixed(2);
-    totalSms.innerHTML = parseFloat(totalS).toFixed(2);
-    var myBillCost = totalC + totalS;
-    theTotal.innerHTML = parseFloat(myBillCost).toFixed(2);
-    
-    if (myBillCost >= critSetting) {
+
+    if (totalAll >= critSetting) {
+        theTotal.classList.remove("warning");
         theTotal.classList.add("danger");
+
+
     }
-    else if (myBillCost >= warningSetting) {
+    else if (totalAll >= warningSetting) {
+        theTotal.classList.remove("danger");
         theTotal.classList.add("warning");
     }
-
-    if (myBillCost >= critSetting){
-        theTotal += 0;
-        totalCall += 0;
-        totalSms += 0;
+    else {
+        theTotal.classList.remove("warning");
+        theTotal.classList.remove("danger");
     }
 
-}
+
+};
+
+
+
 
 //add an event listener for when the add button is pressed
 
 addBtn.addEventListener("click", setBill);
+
 
 //in the event listener get the value from the billItemTypeRadio radio buttons
 // * add the appropriate value to the call / sms total
