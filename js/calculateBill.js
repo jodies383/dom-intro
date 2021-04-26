@@ -3,9 +3,9 @@ function calculateBillEvent() {
     var billTotal = 0;
 
     function calBill(string) {
-        var billString = string.split(",");
-        for (var i = 0; i < billString.length; i++) {
-            var billItem = billString[i].trim();
+        var billSplit = string.split(",");
+        for (var i = 0; i < billSplit.length; i++) {
+            var billItem = billSplit[i].trim();
             if (billItem === "call") {
                 billTotal += 2.75;
             }
@@ -14,12 +14,11 @@ function calculateBillEvent() {
             }
 
         }
-
-    }
-    function myBill() {
         var roundedBillTotal = billTotal.toFixed(2);
         return roundedBillTotal;
+
     }
+ 
     function levels() {
         if ((billTotal) >= 30) {
             return "critical"
@@ -30,7 +29,6 @@ function calculateBillEvent() {
     }
     return {
         calBill,
-        myBill,
         levels
 
     }

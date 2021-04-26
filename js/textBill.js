@@ -14,14 +14,15 @@ function textBill() {
             smsTotal += 0.75,
             textTot += 0.75;
         }
+            
     } function totalCall() {
-        return callsTotal;
+        return callsTotal.toFixed(2);
 
     } function totalSms() {
-        return smsTotal;
+        return smsTotal.toFixed(2);
 
     } function textBillCost() {
-        return textTot;
+        return textTot.toFixed(2);
     }
     function textBillLevels() {
         if ((textTot) >= 50) {

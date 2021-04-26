@@ -18,13 +18,13 @@ function radioBill() {
         }
     }
         function radioCall(){
-            return cTotal;
+            return cTotal.toFixed(2);
         }
         function radioSms(){
-            return sTotal;
+            return sTotal.toFixed(2);
         }
         function radioT(){
-            return radioTotal;
+            return radioTotal.toFixed(2);
         }
         function radioBillLevels(){
             if ((radioTotal) >= 50){

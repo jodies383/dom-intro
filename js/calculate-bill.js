@@ -14,55 +14,56 @@ var billStringElement = document.querySelector(".billString");
 //  * once done looping over all the entries - display the total onto the screen in the billTotal element
 
 //link the function to a click event on the calculate button
-
+let calRef = calculateBillEvent();
 
 calculateBtn.addEventListener('click', calculateBtnClicked);
+
 
 function calculateBtnClicked() {
     // get the string entered in the textArea
     var billString = billStringElement.value;
+    console.log(billString);
+
+    // calRef.calBill(billString);
+
+    // var roundedBillTotal = billTotal.toFixed(2);
+    billTotalElement.innerHTML = calRef.calBill(billString);
+    billString = calRef.levels();
+
+
     //split the string
-    var billItems = billString.split(",");
-    // a variable for the total phone bill.
-    var billTotal = 0;
-    //loop over all the bill items
-    for (var i = 0; i < billItems.length; i++) {
-        var billItem = billItems[i].trim();
-        if (billItem === "call") {
-            billTotal += 2.75;
-        }
-        else if (billItem === "sms") {
-            billTotal += 0.75;
-        }
-    }
+    // var billItems = billString.split(",");
+    // // a variable for the total phone bill.
+    // var billTotal = 0;
+    // //loop over all the bill items
+    // for (var i = 0; i < billItems.length; i++) {
+    //     var billItem = billItems[i].trim();
+    //     if (billItem === "call") {
+    //         billTotal += 2.75;
+    //     }
+    //     else if (billItem === "sms") {
+    //         billTotal += 0.75;
+    //     }
+}
 
-    //round to two decimals
-    var roundedBillTotal = billTotal.toFixed(2);
-    billTotalElement.innerHTML = roundedBillTotal;
-
-
-    if (roundedBillTotal >= 30) {
-        billTotalElement.classList.remove("warning");
-        billTotalElement.classList.add("danger");
-
-
-    }
-    else if (roundedBillTotal >= 20) {
-        billTotalElement.classList.remove("danger");
-        billTotalElement.classList.add("warning");
-    }
-    else {
-        billTotalElement.classList.remove("warning");
-        billTotalElement.classList.remove("danger");
-    }
-
-
-};
+//     //round to two decimals
 
 
 
+//     if (roundedBillTotal >= 30) {
+//         billTotalElement.classList.remove("warning");
+//         billTotalElement.classList.add("danger");
 
 
+//     }
+//     else if (roundedBillTotal >= 20) {
+//         billTotalElement.classList.remove("danger");
+//         billTotalElement.classList.add("warning");
+//     }
+//     else {
+//         billTotalElement.classList.remove("warning");
+//         billTotalElement.classList.remove("danger");
+//     }
 
 
-
+// };
