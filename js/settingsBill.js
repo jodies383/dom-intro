@@ -36,35 +36,29 @@ function BillWithSettings() {
     function getCriticalLevel() {
         return theCriticalLevel;
     }
-    function setCriticalLevel(criticalLevel) {
-        theCriticalLevel = criticalLevel;
-
-    }
-    function getCriticalLevel() {
-        return theCriticalLevel;
-    }
+   
     function makeCall() {
         if (!hasReachedCriticalLevel()){
-        callCostTotal += theCallCost;
+        callCostTotal += parseFloat(theCallCost);
         }
 
     }
     function getTotalCost() {
-        return callCostTotal + smsCostTotal;
+        return parseFloat(callCostTotal.toFixed(2)) + parseFloat(smsCostTotal.toFixed(2));
 
     }
     function getTotalCallCost() {
-        return callCostTotal;
+        return callCostTotal.toFixed(2);
 
     }
     function getTotalSmsCost() {
-        return smsCostTotal;
+        return smsCostTotal.toFixed(2);
 
     }
     function sendSms() {
 
         if (!hasReachedCriticalLevel()){
-            smsCostTotal += theSmsCost;
+            smsCostTotal += parseFloat(theSmsCost);
 
         }
        
