@@ -21,33 +21,9 @@ function calculateBillEvent() {
 
     }
 
+    return {
+        calBill,
 
-    // function levels() {
-    //     if ((billTotal) >= 30) {
-    //         return ("danger")
-    //     }
-    //     else if ((billTotal) >= 20) {
-    //         return ("warning")
-    //     }
-
-    // }
-    // function removeCrit() {
-    //     if ((billTotal) <= 30) {
-    //         return ("danger")
-    //     }
-    // }
-    // function removeWarn() {
-    //     if ((billTotal) <= 20) {
-    //         return ("warning")
-    //     }
-    // }
-
-return {
-    calBill,
-    // levels,
-    // removeCrit,
-    // removeWarn
-
-}
+    }
 }
 
