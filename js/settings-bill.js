@@ -44,7 +44,8 @@ function changeBill() {
     billToSet.setSmsCost(settingsSms);
     billToSet.setWarningLevel(settingsWarning);
     billToSet.setCriticalLevel(settingsCritical);
-    theTotal.classList.remove(billToSet.removeTotalClassName());
+    theTotal.classList.remove(billToSet.removeTotalCritName());
+    theTotal.classList.remove(billToSet.removeTotalWarnName());
     // callSetting = Number(setCall.value)
     // smsSetting = Number(setSms.value)
     // warningSetting = Number(warnLevel.value)

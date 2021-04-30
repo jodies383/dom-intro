@@ -1,10 +1,11 @@
 function calculateBillEvent() {
 
-    let billTotal = 0;
+
 
     function calBill(string) {
+        let billTotal = 0;
         var billSplit = string.split(",");
-        
+
         for (var i = 0; i < billSplit.length; i++) {
             var billItem = billSplit[i].trim();
             if (billItem === "call") {
@@ -15,33 +16,38 @@ function calculateBillEvent() {
             }
 
         }
-        
+
         return billTotal.toFixed(2);
 
     }
 
 
-    function levels() {
-        if ((billTotal) >= 30) {
-            return ("danger")
-        }
-        else if ((billTotal) >= 20) {
-            return ("warning")
-        }
+    // function levels() {
+    //     if ((billTotal) >= 30) {
+    //         return ("danger")
+    //     }
+    //     else if ((billTotal) >= 20) {
+    //         return ("warning")
+    //     }
 
-    }
-    function removeLevels() {
-        if ((billTotal) <= 30) {
-            return billTotal;
-        }
-        else if ((billTotal) <= 20) {
-            return billTotal;
-        }
-    }
-    return {
-        calBill,
-        levels,
-        removeLevels
+    // }
+    // function removeCrit() {
+    //     if ((billTotal) <= 30) {
+    //         return ("danger")
+    //     }
+    // }
+    // function removeWarn() {
+    //     if ((billTotal) <= 20) {
+    //         return ("warning")
+    //     }
+    // }
 
-    }
+return {
+    calBill,
+    // levels,
+    // removeCrit,
+    // removeWarn
+
 }
+}
+

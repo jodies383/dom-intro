@@ -28,9 +28,23 @@ function calculateBtnClicked() {
 
     // var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = calRef.calBill(billString);
+   
+
+    if (billTotalElement.innerHTML >= 30) {
+                billTotalElement.classList.remove("warning");
+                billTotalElement.classList.add("danger");
+        
+        
+            }
+            else if (billTotalElement.innerHTML >= 20) {
+                billTotalElement.classList.remove("danger");
+                billTotalElement.classList.add("warning");
+            }
+            else {
+                billTotalElement.classList.remove("warning");
+                billTotalElement.classList.remove("danger");
+            }
     
-    billTotalElement.classList.add(calRef.levels());
-    billTotalElement.classList.remove(calRef.removeLevels());
     
 
 
@@ -53,20 +67,7 @@ function calculateBtnClicked() {
 
 
 
-//     if (roundedBillTotal >= 30) {
-//         billTotalElement.classList.remove("warning");
-//         billTotalElement.classList.add("danger");
-
-
-//     }
-//     else if (roundedBillTotal >= 20) {
-//         billTotalElement.classList.remove("danger");
-//         billTotalElement.classList.add("warning");
-//     }
-//     else {
-//         billTotalElement.classList.remove("warning");
-//         billTotalElement.classList.remove("danger");
-//     }
+//    
 
 
 // };
