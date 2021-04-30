@@ -26,10 +26,10 @@ function textBill() {
     }
     function textBillLevels() {
         if ((textTot) >= 50) {
-            return "critical"
+            return ("danger")
         }
         else if ((textTot) >= 30) {
-            return "warning"
+            return ("warning")
         }
     }
     return {

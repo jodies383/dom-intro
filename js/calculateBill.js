@@ -1,9 +1,10 @@
 function calculateBillEvent() {
 
-    var billTotal = 0;
+    let billTotal = 0;
 
     function calBill(string) {
         var billSplit = string.split(",");
+        
         for (var i = 0; i < billSplit.length; i++) {
             var billItem = billSplit[i].trim();
             if (billItem === "call") {
@@ -14,22 +15,33 @@ function calculateBillEvent() {
             }
 
         }
-        var roundedBillTotal = billTotal.toFixed(2);
-        return roundedBillTotal;
+        
+        return billTotal.toFixed(2);
 
     }
- 
+
+
     function levels() {
         if ((billTotal) >= 30) {
-            return "critical"
+            return ("danger")
         }
         else if ((billTotal) >= 20) {
-            return "warning"
+            return ("warning")
+        }
+
+    }
+    function removeLevels() {
+        if ((billTotal) <= 30) {
+            return billTotal;
+        }
+        else if ((billTotal) <= 20) {
+            return billTotal;
         }
     }
     return {
         calBill,
-        levels
+        levels,
+        removeLevels
 
     }
 }

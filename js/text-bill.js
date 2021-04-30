@@ -27,6 +27,7 @@ function textBillSum() {
     callsTotalElem.innerHTML = textRef.totalCall();
     smsTotalElem.innerHTML = textRef.totalSms();
     totalCostElem.innerHTML = textRef.textBillCost();
+    totalCostElem.classList.add(textRef.textBillLevels());
     
 //     // get the value entered in the billType textfield
 //     var billTypeEntered = billTypeText.value.trim();

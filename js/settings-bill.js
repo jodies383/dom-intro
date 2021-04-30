@@ -37,9 +37,14 @@ function changeBill() {
     var settingsCritical = critLevel.value;
 
     billToSet.setCallCost(settingsCall);
+    billToSet.getCallCost();
+    billToSet.getSmsCost();
+    billToSet.getWarningLevel();
+    billToSet.getCriticalLevel();
     billToSet.setSmsCost(settingsSms);
     billToSet.setWarningLevel(settingsWarning);
     billToSet.setCriticalLevel(settingsCritical);
+    theTotal.classList.remove(billToSet.removeTotalClassName());
     // callSetting = Number(setCall.value)
     // smsSetting = Number(setSms.value)
     // warningSetting = Number(warnLevel.value)
@@ -72,12 +77,16 @@ function setBill() {
 
     var checkedSetBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked").value;
     
-    billToSet.makeCall();
-    billToSet.sendSms();
+    billToSet.makeCall(checkedSetBtn);
+    
+    billToSet.sendSms(checkedSetBtn);
 
     totalCall.innerHTML = billToSet.getTotalCallCost();
     totalSms.innerHTML = billToSet.getTotalSmsCost();
-    theTotal.innerHTML = billToSet.getTotalCost();
+    theTotal.innerHTML = billToSet.getTotalCost().toFixed(2);
+    theTotal.classList.add(billToSet.totalClassName());
+    
+
 
 
     // if (totalAll < critSetting) {

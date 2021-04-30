@@ -22,13 +22,16 @@ calculateBtn.addEventListener('click', calculateBtnClicked);
 function calculateBtnClicked() {
     // get the string entered in the textArea
     var billString = billStringElement.value;
-    console.log(billString);
+    //console.log(billString);
 
     // calRef.calBill(billString);
 
     // var roundedBillTotal = billTotal.toFixed(2);
     billTotalElement.innerHTML = calRef.calBill(billString);
-    billString = calRef.levels();
+    
+    billTotalElement.classList.add(calRef.levels());
+    billTotalElement.classList.remove(calRef.removeLevels());
+    
 
 
     //split the string

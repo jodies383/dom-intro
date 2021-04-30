@@ -28,6 +28,7 @@ function clickRadioBill() {
     myCallTotal.innerHTML = radioRef.radioCall();
     mySmsTotal.innerHTML = radioRef.radioSms();
     billTotal.innerHTML = radioRef.radioT();
+    billTotal.classList.add(radioRef.radioBillLevels());
    
     // if (checkedRadioBtn === "call") {
     //     // billItemType will be 'call' or 'sms'{
