@@ -1,4 +1,5 @@
-
+var templateElem = document.querySelector(".domTemplate").innerHTML
+var radioTemplate = Handlebars.compile(templateElem)
 var myCallTotal = document.querySelector(".callTotalTwo")
 var mySmsTotal = document.querySelector(".smsTotalTwo")
 var billTotal = document.querySelector(".totalTwo")
@@ -17,10 +18,9 @@ function clickRadioBill() {
 
     radioRef.calcRadio(checkedRadioBtn);
 
-    myCallTotal.innerHTML = radioRef.radioCall();
-    mySmsTotal.innerHTML = radioRef.radioSms();
-    billTotal.innerHTML = radioRef.radioT();
+    myCallTotal.innerHTML = radioTemplate({call: radioRef.radioCall()});
+    mySmsTotal.innerHTML = radioTemplate({sms: radioRef.radioSms()});
+    billTotal.innerHTML = radioTemplate({total: radioRef.radioT()});
     billTotal.classList.add(radioRef.radioBillLevels());
 
-
-}
+   }
