@@ -21,6 +21,6 @@ function clickRadioBill() {
     myCallTotal.innerHTML = radioTemplate({call: radioRef.radioCall()});
     mySmsTotal.innerHTML = radioTemplate({sms: radioRef.radioSms()});
     billTotal.innerHTML = radioTemplate({total: radioRef.radioT()});
-    billTotal.classList.add(radioRef.radioBillLevels());
+    radioTemplate({warnings: billTotal.classList.add(radioRef.radioBillLevels())});
 
    }

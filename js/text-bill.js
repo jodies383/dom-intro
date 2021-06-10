@@ -21,6 +21,6 @@ function textBillSum() {
     callsTotalElem.innerHTML = textTemplate({call: textRef.totalCall()});
     smsTotalElem.innerHTML = textTemplate({sms: textRef.totalSms()});
     totalCostElem.innerHTML = textTemplate({total: textRef.textBillCost()});
-    totalCostElem.classList.add(textRef.textBillLevels());
+    textTemplate({warnings: totalCostElem.classList.add(textRef.textBillLevels())});
 
 }
